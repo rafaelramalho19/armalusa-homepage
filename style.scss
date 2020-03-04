@@ -111,11 +111,11 @@ body {
     border-radius: 8px;
 
     @media(min-width: 720px) {
-        width: 33%;
+        width: 50%;
     }
 
    @media(min-width: 1024px) {
-       width: 50%;
+       width: 40%;
    } 
 }
 
@@ -150,6 +150,11 @@ body {
    @media(min-width: 720px) {
        width: 75%;
    } 
+
+   > h2 {
+       text-align: center;
+       padding-bottom: 4vh;
+   }
 }
 
 .button {
@@ -220,6 +225,21 @@ body {
     justify-content: space-evenly;
     width: 100%;
     margin: 16px 0;
+}
+
+.bottom-photo {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 10vh;
+
+    > img {
+        width: 100%;
+
+        @media(min-width: 1200px) {
+            width: 75%;
+        }
+    }
 }
 
 @keyframes glowing {
