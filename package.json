@@ -13,6 +13,7 @@
     "parcel": "^1.12.4"
   },
   "devDependencies": {
+    "parcel-plugin-inliner": "^1.0.14",
     "sass": "^1.26.2"
   }
 }
