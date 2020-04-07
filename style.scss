@@ -242,6 +242,13 @@ body {
     }
 }
 
+.logo {
+    margin: 0 auto 4vh;
+    width: 40vw;
+    min-width: 300px;
+    max-width: 400px;
+}
+
 @keyframes glowing {
     0% { background-position: 0 0; }
     50% { background-position: 400% 0; }
