@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="./style.scss">
     <link rel='shortcut icon'
         href='https://www.armalusa.pt/uploads/monthly_2018_06/favicon.ico.a1ace5a0d3a971353cb23e56bafa0684.ico'
-        type="image/x-icon">    
-    <meta property="og:image" content="https://www.armalusa.pt/uploads/monthly_2018_06/large.Nw6M7QJ.png.40d5cc7039be1de1836f0789eca1d704.png">
+        type="image/x-icon">
+    <meta property="og:image"
+        content="https://www.armalusa.pt/uploads/monthly_2018_06/large.Nw6M7QJ.png.40d5cc7039be1de1836f0789eca1d704.png">
     <meta property="og:title" content="ARMALUSA - Arma 3 Portugal">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.armalusa.pt/">
@@ -31,8 +32,13 @@
     </div>
     <main>
         <header class="buttons">
-            <img class="logo" src="https://www.armalusa.pt/uploads/monthly_2018_06/2006987021_Insigniabordada.png.9eeb82376f7d28421cf540719089be96.png" alt="Armalusa logo"/>
+            <img class="logo"
+                src="https://www.armalusa.pt/uploads/monthly_2018_06/2006987021_Insigniabordada.png.9eeb82376f7d28421cf540719089be96.png"
+                alt="Armalusa logo" />
             <h2>Se procuras uma comunidade de simulação militar e se és maior de 18, inscreve-te!</h2>
+            <div class="buttons__full-section">
+                <a class="button button--fat" href="/?skip_login=1">Entrar</a>
+            </div>
             <div class="buttons__full-section">
                 <a class="button button--fat" href="/login">Login</a>
                 <a class="button button--fat" href="/register">Registo</a>
@@ -59,10 +65,74 @@
             </div>
         </section>
 
+        <section class="orbat">
+            <div class="team team--co">
+                <img class="comando-full"src="https://www.armalusa.pt/uploads/monthly_2020_04/Comando-operacional.jpg.05137185c24d2628d0ee4029b6346ff9.jpg"
+                    alt="Comando Operacional">
+                <img class="comando"
+                    src="https://www.armalusa.pt/uploads/monthly_2020_04/Comando-compressor.cropped.png.2c647315be370ddfb8cce87495bc6e14.png"
+                    alt="">
+            </div>
+            <div class="team team--alfa">
+                <div class="line"></div>
+                <img src="https://www.armalusa.pt/uploads/monthly_2020_04/logo-comandos.cropped.png.9c7983f3442b3bf29b455f5289ce11d8.png"
+                    alt="Logo Comandos Portugal">
+            </div>
+            <div class="team team--bravo">
+                <div class="line"></div>
+                <img src="https://www.armalusa.pt/uploads/monthly_2020_04/Paraquedistas.cropped.png.4fcec7b09bcbfe4fe956822c898e5262.png"
+                    alt="Logo Paraquedistas Portugal">
+            </div>
+            <div class="team team--charlie">
+                <div class="line"></div>
+                <img src="https://www.armalusa.pt/uploads/monthly_2019_01/CTOECor.png.abad592465892514d9a04ed7ab45fa25.png"
+                    alt="Logo C.T.O.E. Rangers Portugal">
+            </div>
+            <div class="team team--jaguares">
+                <div class="line"></div>
+                <img src="https://www.armalusa.pt/uploads/monthly_2019_06/esq3011200.cropped.png.64b7d5a620025cca5d77d3cd68817f96.png"
+                    alt="Logo Força Aerea Portugal">
+            </div>
+            <div class="team team--co mobile">
+                <img class="comando-full"src="https://www.armalusa.pt/uploads/monthly_2020_04/Comando-operacional.jpg.05137185c24d2628d0ee4029b6346ff9.jpg"
+                    alt="Comando Operacional">
+            </div>
+        </section>
+
         <section class="bottom-photo">
-            <img src="https://www.armalusa.pt/uploads/monthly_2018_06/large.Nw6M7QJ.png.40d5cc7039be1de1836f0789eca1d704.png" alt="Armalusa">
+            <img src="https://www.armalusa.pt/uploads/monthly_2018_06/large.Nw6M7QJ.png.40d5cc7039be1de1836f0789eca1d704.png"
+                alt="Armalusa">
         </section>
     </main>
+
+
+    <script>
+        const comando = document.querySelector('.team--co');
+        function watchDown() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.filter(entry => entry.isIntersecting).forEach(entry => {
+                    comando.classList.add('active');
+                    observer.disconnect();
+                    setTimeout(() => watchUp(), 1000);
+                });
+            }, { threshold: 0.2 });
+            observer.observe(document.querySelector('.team--alfa')); 
+        }
+
+        function watchUp() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.filter(entry => entry.isIntersecting).forEach(entry => {
+                    comando.classList.remove('active');
+                    observer.disconnect();
+                    watchDown();
+                });
+            }, { threshold: 0.3 });
+            observer.observe(document.querySelector('.comando-full')); 
+        }
+
+        watchDown();
+
+    </script>
 </body>
 
 </html>
